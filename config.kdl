@@ -63,18 +63,30 @@ keybinds clear-defaults=true {
 			bind "Ctrl t" { SwitchToMode "Tab"; }
 			bind "Ctrl w" { SwitchToMode "Session"; }
 		}
-    resize {
+    scroll {
         bind "Ctrl n" { SwitchToMode "Normal"; }
-        bind "h" { Resize "Increase Left"; }
-        bind "j" { Resize "Increase Down"; }
-        bind "k" { Resize "Increase Up"; }
-        bind "l" { Resize "Increase Right"; }
-        bind "H" { Resize "Decrease Left"; }
-        bind "J" { Resize "Decrease Down"; }
-        bind "K" { Resize "Decrease Up"; }
-        bind "L" { Resize "Decrease Right"; }
-        bind "+" { Resize "Increase"; }
-        bind "-" { Resize "Decrease"; }
+        bind "j" { ScrollDown; }
+        bind "k" { ScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "e" { EditScrollback; SwitchToMode "Normal"; }
+        bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
+    }
+    search {
+        bind "Ctrl n" { SwitchToMode "Normal"; }
+        bind "j" { ScrollDown; }
+        bind "k" { ScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "p" { Search "up"; }
+        bind "n" { Search "down"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+    }
+    entersearch {
+        bind "Esc" { SearchInput 0; SwitchToMode "Scroll"; }
+        bind "Enter" { SwitchToMode "Search"; }
     }
     pane {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -98,6 +110,23 @@ keybinds clear-defaults=true {
         bind "t" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
+    renamepane {
+        bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
+        bind "Enter" { SwitchToMode "Normal"; }
+    }
+    resize {
+        bind "Ctrl n" { SwitchToMode "Normal"; }
+        bind "h" { Resize "Increase Left"; }
+        bind "j" { Resize "Increase Down"; }
+        bind "k" { Resize "Increase Up"; }
+        bind "l" { Resize "Increase Right"; }
+        bind "H" { Resize "Decrease Left"; }
+        bind "J" { Resize "Decrease Down"; }
+        bind "K" { Resize "Decrease Up"; }
+        bind "L" { Resize "Decrease Right"; }
+        bind "+" { Resize "Increase"; }
+        bind "-" { Resize "Decrease"; }
+    }
     tab {
         bind "Ctrl n" { SwitchToMode "Normal"; }
         bind "t" { NewTab; SwitchToMode "Normal"; }
@@ -116,36 +145,9 @@ keybinds clear-defaults=true {
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
         bind "0" { ToggleTab; }
     }
-    scroll {
-        bind "Ctrl n" { SwitchToMode "Normal"; }
-        bind "j" { ScrollDown; }
-        bind "k" { ScrollUp; }
-        bind "d" { HalfPageScrollDown; }
-        bind "u" { HalfPageScrollUp; }
-        bind "e" { EditScrollback; SwitchToMode "Normal"; }
-        bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
-    }
-    search {
-        bind "Ctrl n" { SwitchToMode "Normal"; }
-        bind "j" { ScrollDown; }
-        bind "k" { ScrollUp; }
-        bind "d" { HalfPageScrollDown; }
-        bind "u" { HalfPageScrollUp; }
-        bind "p" { Search "up"; }
-        bind "n" { Search "down"; }
-        bind "c" { SearchToggleOption "CaseSensitivity"; }
-        bind "w" { SearchToggleOption "Wrap"; }
-        bind "o" { SearchToggleOption "WholeWord"; }
-    }
-    entersearch {
-        bind "Esc" { SwitchToMode "Scroll"; }
-        bind "Enter" { SwitchToMode "Search"; }
-    }
     renametab {
         bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
-    }
-    renamepane {
-        bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
+        bind "Enter" { SwitchToMode "Normal"; }
     }
     session {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -319,7 +321,6 @@ load_plugins {
 // Note: be sure to escape backslashes and similar characters properly
 //
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
-
 
 web_client {
     font "monospace"
