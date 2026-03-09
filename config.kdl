@@ -11,39 +11,39 @@ theme	"nord"
 default_layout	"compact"
 default_mode	"normal"
 
-// 启动行为
+// 启动选项
 show_startup_tips	false
 show_release_notes	false
 
-// shell行为
+// shell选项
 on_force_close	"detach"
 default_shell	"zsh"
 // default_cwd	""	// 默认工作路径继承父进程
 // session_name	"work"	// 默认使用随机会话名	
 attach_to_session	false
 
-// 面板行为
+// 面板选项
 pane_frames	true
 auto_layout	true
 stacked_resize	true
-scroll_buffer_size 10000
+scroll_buffer_size 100000
 osc8_hyperlinks	true
 // copy_command "xclip -selection clipboard"	// 默认走OSC 52路线
 copy_clipboard	"system"	// 仅OSC 52时生效
 scrollback_editor	"nvim"
 
-// UI
+// UI选项
 visual_bell	true
 simplified_ui	false
 styled_underlines	true
 
-// 鼠标行为
+// 鼠标选项
 mouse_mode	false
 advanced_mouse_actions	false
-mouse_hove_effects	false
+mouse_hover_effects	false
 copy_on_select false
 
-// 会话行为
+// 会话选项
 mirror_session	false
 support_kitty_keyboard_protocol false
 
@@ -265,8 +265,9 @@ keybinds clear-defaults=true {
     }
 }
 
-// Plugin aliases - can be used to change the implementation of Zellij
-// changing these requires a restart to take effect
+////////////////////
+// plugins
+////////////////////
 plugins {
     tab-bar location="zellij:tab-bar"
     status-bar location="zellij:status-bar"
