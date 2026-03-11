@@ -5,7 +5,7 @@
 // theme_dir	"/home/pacjuvenile/.config//zellij/themes"
 
 // 基础选项
-theme	"default"
+theme	"dracula"
 default_layout	"custom_layout"
 default_mode	"locked"
 
@@ -73,7 +73,10 @@ keybinds clear-defaults=true {
         bind "R" { NewPane "Right"; }
         bind "D" { NewPane "Down"; }
         bind "S" { NewPane "stacked"; }
+        bind "F" { ToggleFloatingPanes; }
         bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+        bind "f" { ToggleFocusFullscreen; }
+        bind "t" { ToggleFloatingPanes; }
         bind "h" { MoveFocus "Left"; }
         bind "j" { MoveFocus "Down"; }
         bind "k" { MoveFocus "Up"; }
@@ -86,8 +89,6 @@ keybinds clear-defaults=true {
         bind "J" { Resize "Increase Down"; }
         bind "K" { Resize "Decrease Down"; }
         bind "L" { Resize "Increase Right"; }
-        bind "F" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
-        bind "T" { ToggleFloatingPanes; SwitchToMode "Locked"; }
         bind "X" { CloseFocus; }
         bind "Ctrl t" { NewTab; }
         bind "Ctrl r" { SwitchToMode "RenameTab"; TabNameInput 0; }
@@ -136,16 +137,16 @@ plugins {
     // tab-bar location="zellij:tab-bar"
     // status-bar location="zellij:status-bar"
     // strider location="zellij:strider"
-    // compact-bar location="zellij:compact-bar"
+    compact-bar location="zellij:compact-bar"
     // session-manager location="zellij:session-manager"
-    welcome-screen location="zellij:session-manager" {
-        welcome_screen true
-    }
+    // welcome-screen location="zellij:session-manager" {
+    //     welcome_screen true
+    // }
     // filepicker location="zellij:strider" {
     //     cwd "/"
     // }
     // configuration location="zellij:configuration"
-    // plugin-manager location="zellij:plugin-manager"
+    plugin-manager location="zellij:plugin-manager"
     // about location="zellij:about"
 }
 

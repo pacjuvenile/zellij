@@ -1,1 +1,23 @@
-layout
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="file:/home/pacjuvenile/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "{mode} {session}"
+                format_center "{tabs}"
+                format_right  "{datetime}"
+
+                mode_normal          "#[bg=blue,fg=black,bold] NORMAL "
+                mode_locked          "#[bg=red,fg=black,bold] LOCKED "
+                mode_default_to_mode "normal"
+
+                tab_normal "#[fg=white] {index}:{name} "
+                tab_active "#[fg=yellow,bold] {index}:{name} "
+
+                datetime          "#[fg=cyan] {format} "
+                datetime_format   "%Y-%m-%d %H:%M:%S"
+                datetime_timezone "Asia/Shanghai"
+            }
+        }
+    }
+}
