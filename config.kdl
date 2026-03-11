@@ -63,7 +63,7 @@ keybinds clear-defaults=true {
 				// 退出
 				bind "Ctrl q" { Quit; }
 				// 锁定
-				bind "Ctrl g" { SwitchToMode "Locked"; }
+				bind "Ctrl l" { SwitchToMode "Locked"; }
 				// 面板
         bind "R" { NewPane "Right"; }
         bind "D" { NewPane "Down"; }
