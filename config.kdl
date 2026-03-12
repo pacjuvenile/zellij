@@ -76,7 +76,6 @@ keybinds clear-defaults=true {
         bind "F" { ToggleFloatingPanes; SwitchToMode "Locked"; }
         bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
         bind "f" { ToggleFocusFullscreen; }
-        bind "t" { ToggleFloatingPanes; }
         bind "h" { MoveFocus "Left"; }
         bind "j" { MoveFocus "Down"; }
         bind "k" { MoveFocus "Up"; }
@@ -134,20 +133,13 @@ keybinds clear-defaults=true {
 // plugins
 ////////////////////
 plugins {
-    // tab-bar location="zellij:tab-bar"
-    // status-bar location="zellij:status-bar"
-    // strider location="zellij:strider"
-    compact-bar location="zellij:compact-bar"
-    // session-manager location="zellij:session-manager"
     // welcome-screen location="zellij:session-manager" {
     //     welcome_screen true
     // }
     // filepicker location="zellij:strider" {
     //     cwd "/"
     // }
-    // configuration location="zellij:configuration"
     plugin-manager location="zellij:plugin-manager"
-    // about location="zellij:about"
 }
 
 load_plugins {
