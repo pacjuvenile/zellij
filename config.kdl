@@ -9,7 +9,7 @@
 // 基础选项
 theme	"dracula"
 default_layout	"custom_layout"
-default_mode	"normal"
+default_mode	"locked"	// 默认启动模式会透传未绑定按键
 
 // 启动选项
 show_startup_tips	false
