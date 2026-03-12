@@ -83,33 +83,37 @@ keybinds clear-defaults=true {
 				bind "Ctrl q" { Quit; }
 				// 锁定
 				bind "Ctrl l" { SwitchToMode "Locked"; }
-				// 面板
-        bind "R" { NewPane "Right"; }
-        bind "D" { NewPane "Down"; }
-        bind "S" { NewPane "stacked"; }
-        bind "F" { ToggleFloatingPanes; SwitchToMode "Locked"; }
-        bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-        bind "f" { ToggleFocusFullscreen; }
+				// 新建/删除
+        bind "Ctrl r" { NewPane "Right"; }
+        bind "Ctrl d" { NewPane "Down"; }
+        bind "Ctrl s" { NewPane "stacked"; }
+        bind "Ctrl f" { ToggleFloatingPanes; SwitchToMode "Locked"; }
+				bind "Ctrl x" { CloseFocus; }
+        bind "Ctrl t" { NewTab; }
+        bind "Ctrl w" { CloseTab; }
+				// 焦点移动
         bind "h" { MoveFocus "Left"; }
         bind "j" { MoveFocus "Down"; }
         bind "k" { MoveFocus "Up"; }
         bind "l" { MoveFocus "Right"; }
-        bind "Left" { MovePane "Left"; }
-        bind "Down" { MovePane "Down"; }
-        bind "Up" { MovePane "Up"; }
-        bind "Right" { MovePane "Right"; }
+				bind "p" { GoToPreviousTab; }
+				bind "n" { GoToNextTab; }
+				// 尺寸调整
         bind "H" { Resize "Decrease Right"; }
         bind "J" { Resize "Increase Down"; }
         bind "K" { Resize "Decrease Down"; }
         bind "L" { Resize "Increase Right"; }
-        bind "X" { CloseFocus; }
-        bind "Ctrl t" { NewTab; }
-        bind "Ctrl r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-				bind "p" { GoToPreviousTab; }
-				bind "n" { GoToNextTab; }
-        bind "Ctrl p" { MoveTab "Left"; }
-        bind "Ctrl n" { MoveTab "Right"; }
-        bind "Ctrl w" { CloseTab; }
+        bind "F" { ToggleFocusFullscreen; }
+				// 位置调整
+        bind "Left" { MovePane "Left"; }
+        bind "Down" { MovePane "Down"; }
+        bind "Up" { MovePane "Up"; }
+        bind "Right" { MovePane "Right"; }
+        bind "P" { MoveTab "Left"; }
+        bind "N" { MoveTab "Right"; }
+				// 命名调整
+        bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+        bind "R" { SwitchToMode "RenameTab"; TabNameInput 0; }
 		}
 		scroll {
 				bind "Esc" { SwitchToMode "Locked"; }
