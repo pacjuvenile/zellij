@@ -10,8 +10,6 @@ layout {
                 format_right  ""
                 format_space  " "
 
-                hide_frame_for_single_pane "true"
-
                 // mode 色块（按你当前 keymaps）
                 mode_normal       "#[bg=#a6da95,fg=#24273a,bold] N "
                 mode_locked       "#[bg=#ed8796,fg=#24273a,bold] L "

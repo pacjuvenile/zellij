@@ -12,17 +12,4 @@ themes {
         black 0 0 0
         white 255 255 255
     }
-		catppuccin_macchiato {
-        fg 202 211 245
-        bg 91 96 120
-        red 237 135 150
-        green 166 218 149
-        yellow 238 212 159
-        blue 138 173 244
-        magenta 245 189 230
-        orange 245 169 127
-        cyan 139 213 202
-        black 73 77 100
-        white 184 192 224
-		}
 }
