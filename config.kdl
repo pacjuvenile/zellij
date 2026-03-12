@@ -73,7 +73,7 @@ keybinds clear-defaults=true {
         bind "R" { NewPane "Right"; }
         bind "D" { NewPane "Down"; }
         bind "S" { NewPane "stacked"; }
-        bind "F" { ToggleFloatingPanes; }
+        bind "F" { ToggleFloatingPanes; SwitchToMode "Locked"; }
         bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
         bind "f" { ToggleFocusFullscreen; }
         bind "t" { ToggleFloatingPanes; }
