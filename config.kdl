@@ -71,52 +71,57 @@ load_plugins {
 ////////////////////
 keybinds clear-defaults=true {
     locked {
-				// 普通模式
+				// normal mode
         bind "Ctrl n" { SwitchToMode "Normal"; }
-				// 滚动
-				bind "Ctrl s" { SwitchToMode "Scroll"; }
-				// 搜索
-        bind "Ctrl /" { SwitchToMode "EnterSearch"; SearchInput 0; }
     }
     normal {
-				// 退出
+				// quit
 				bind "Ctrl q" { Quit; }
-				// 锁定
-				bind "Ctrl l" { SwitchToMode "Locked"; }
-				// 新建/删除
-        bind "Ctrl r" { NewPane "Right"; }
-        bind "Ctrl d" { NewPane "Down"; }
-        bind "Ctrl s" { NewPane "stacked"; }
-        bind "Ctrl f" { ToggleFloatingPanes; SwitchToMode "Locked"; }
-				bind "Ctrl x" { CloseFocus; }
-        bind "Ctrl t" { NewTab; }
-        bind "Ctrl w" { CloseTab; }
-				// 焦点移动
+				// locked
+				bind "l" { SwitchToMode "Locked"; }
+				// pane
+				bind "p" { SwitchToMode "Pane"; }
+				// tab
+				bind "t" { SwitchToMode "Tab"; }
+				// scroll
+				bind "s" { SwitchToMode "scroll"; }
+				// search
+				bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+		}
+		pane {
+				bind "Esc" { SwitchToMode "Normal"; }
+        bind "|" { NewPane "Right"; }
+        bind "_" { NewPane "Down"; }
+        bind "s" { NewPane "stacked"; }
+        bind "f" { ToggleFloatingPanes; }
+				bind "X" { CloseFocus; }
         bind "h" { MoveFocus "Left"; }
         bind "j" { MoveFocus "Down"; }
         bind "k" { MoveFocus "Up"; }
         bind "l" { MoveFocus "Right"; }
-				bind "p" { GoToPreviousTab; }
-				bind "n" { GoToNextTab; }
-				// 尺寸调整
         bind "H" { Resize "Decrease Right"; }
         bind "J" { Resize "Increase Down"; }
         bind "K" { Resize "Decrease Down"; }
         bind "L" { Resize "Increase Right"; }
         bind "F" { ToggleFocusFullscreen; }
-				// 位置调整
         bind "Left" { MovePane "Left"; }
         bind "Down" { MovePane "Down"; }
         bind "Up" { MovePane "Up"; }
         bind "Right" { MovePane "Right"; }
+        bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+		}
+		tab {
+				bind "Esc" { SwitchToMode "Normal"; }
+        bind "t" { NewTab; }
+        bind "x" { CloseTab; }
+				bind "p" { GoToPreviousTab; }
+				bind "n" { GoToNextTab; }
         bind "P" { MoveTab "Left"; }
         bind "N" { MoveTab "Right"; }
-				// 命名调整
-        bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-        bind "R" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 		}
 		scroll {
-				bind "Esc" { SwitchToMode "Locked"; }
+				bind "Esc" { SwitchToMode "Normal"; }
         bind "j" { ScrollDown; }
         bind "k" { ScrollUp; }
         bind "d" { HalfPageScrollDown; }
@@ -124,11 +129,11 @@ keybinds clear-defaults=true {
         bind "e" { EditScrollback; SwitchToMode "Locked"; }
 		}
     entersearch {
-        bind "Esc" { SearchInput 0; SwitchToMode "Locked"; }
+        bind "Esc" { SearchInput 0; SwitchToMode "Normal"; }
         bind "Enter" { SwitchToMode "Search"; }
     }
     search {
-				bind "Esc" { SwitchToMode "Locked"; }
+				bind "Esc" { SwitchToMode "Normal"; }
         bind "p" { Search "up"; }
         bind "n" { Search "down"; }
         bind "c" { SearchToggleOption "CaseSensitivity"; }

@@ -2,26 +2,33 @@ layout {
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="zjstatus" {
-                format_left   "{session}"
+                // 左侧: 模式 + 被色块包裹的会话名
+                // 中间: tabs
+                // 右侧: 留空（移除时间）
+                format_left   "{mode}#[bg=#8aadf4,fg=#24273a,bold] {session} "
                 format_center "{tabs}"
+                format_right  ""
+                format_space  " "
 
-                tab_normal "#[fg=white] {index}:{name} "
-                tab_active "#[fg=yellow,bold] {index}:{name} "
+                hide_frame_for_single_pane "true"
+
+                // mode 色块（按你当前 keymaps）
+                mode_normal       "#[bg=#a6da95,fg=#24273a,bold] N "
+                mode_locked       "#[bg=#ed8796,fg=#24273a,bold] L "
+                mode_pane         "#[bg=#8aadf4,fg=#24273a,bold] P "
+                mode_tab          "#[bg=#eed49f,fg=#24273a,bold] T "
+                mode_scroll       "#[bg=#91d7e3,fg=#24273a,bold] S "
+                mode_enter_search "#[bg=#f5bde6,fg=#24273a,bold] / "
+                mode_search       "#[bg=#f5a97f,fg=#24273a,bold] ? "
+                mode_rename_pane  "#[bg=#b7bdf8,fg=#24273a,bold] RP "
+                mode_rename_tab   "#[bg=#c6a0f6,fg=#24273a,bold] RT "
+                mode_default_to_mode "normal"
+
+                // 延续 Q20.1：标签不使用下方色块
+                tab_normal "#[fg=#8087a2] {index}:{name} "
+                tab_active "#[fg=#8aadf4,bold] {index}:{name} "
             }
         }
-			  children
-        pane size=1 borderless=true {
-            plugin location="zjstatus" {
-                format_left   "{mode}"
-                format_right  "{datetime}"
-
-                mode_normal          "#[bg=blue,fg=black,bold] NORMAL "
-                mode_locked          "#[bg=red,fg=black,bold] LOCKED "
-
-                datetime          "#[fg=cyan] {format} "
-                datetime_format   "%Y-%m-%d %H:%M:%S"
-                datetime_timezone "Asia/Shanghai"
-            }
-        }
+        children
     }
 }
