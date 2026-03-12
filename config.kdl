@@ -105,10 +105,8 @@ keybinds clear-defaults=true {
         bind "X" { CloseFocus; }
         bind "Ctrl t" { NewTab; }
         bind "Ctrl r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-				bind "Ctrl p" { GoToPreviousTab; }
-				bind "Ctrl n" { GoToNextTab; }
-        bind "Ctrl P" { MoveTab "Left"; }
-        bind "Ctrl N" { MoveTab "Right"; }
+        bind "Ctrl p" { MoveTab "Left"; }
+        bind "Ctrl n" { MoveTab "Right"; }
         bind "Ctrl w" { CloseTab; }
 		}
 		scroll {
