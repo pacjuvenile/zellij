@@ -1,4 +1,6 @@
 ////////////////////
+// options
+////////////////////
 // 资源目录
 // 资源目录默认在config.kdl同级目录
 // layout_dir	"/home/pacjuvenile/.config/zellij/layouts"
@@ -51,6 +53,18 @@ disable_session_metadata	false
 
 // Web选项
 web_server	false
+
+////////////////////
+// plugins
+////////////////////
+plugins {
+		zjstatus location="file:/home/pacjuvenile/.config/zellij/plugins/zjstatus.wasm"
+}
+
+load_plugins {
+  // "file:/path/to/my-plugin.wasm"
+  // "https://example.com/my-plugin.wasm"
+}
 
 ////////////////////
 // keymaps
@@ -127,26 +141,4 @@ keybinds clear-defaults=true {
     }
     session {
     }
-}
-
-////////////////////
-// plugins
-////////////////////
-plugins {
-    // welcome-screen location="zellij:session-manager" {
-    //     welcome_screen true
-    // }
-    // filepicker location="zellij:strider" {
-    //     cwd "/"
-    // }
-    plugin-manager location="zellij:plugin-manager"
-}
-
-load_plugins {
-  // "file:/path/to/my-plugin.wasm"
-  // "https://example.com/my-plugin.wasm"
-}
-
-web_client {
-    font "monospace"
 }
