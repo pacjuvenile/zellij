@@ -78,7 +78,7 @@ keybinds clear-defaults=true {
 				// quit
 				bind "Ctrl q" { Quit; }
 				// locked
-				bind "l" { SwitchToMode "Locked"; }
+				bind "Esc" { SwitchToMode "Locked"; }
 				// pane
 				bind "p" { SwitchToMode "Pane"; }
 				// tab
