@@ -87,7 +87,7 @@ keybinds clear-defaults=true {
 		bind "s" { SwitchToMode "scroll"; }
 		// search
 		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
-  }
+	}
   pane {
 		bind "Esc" { SwitchToMode "Normal"; }
 		bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
