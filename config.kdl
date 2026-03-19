@@ -70,10 +70,10 @@ load_plugins {
 // keymaps
 ////////////////////
 keybinds clear-defaults=true {
-  locked {
-	// normal mode
+	locked {
+		// normal mode
 		bind "Ctrl n" { SwitchToMode "Normal"; }
-  }
+	}
   normal {
 		// quit
 		bind "Ctrl q" { Quit; }
