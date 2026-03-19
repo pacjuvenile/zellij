@@ -74,7 +74,7 @@ keybinds clear-defaults=true {
 		// normal mode
 		bind "Ctrl n" { SwitchToMode "Normal"; }
 	}
-  normal {
+	normal {
 		// quit
 		bind "Ctrl q" { Quit; }
 		// locked
