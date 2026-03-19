@@ -72,7 +72,7 @@ load_plugins {
 keybinds clear-defaults=true {
 	locked {
 		// normal mode
-		bind "Ctrl n" { SwitchToMode "Normal"; }
+    bind "Ctrl n" { SwitchToMode "Normal"; }
 	}
   normal {
 		// quit
