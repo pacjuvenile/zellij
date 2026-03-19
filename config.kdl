@@ -161,6 +161,6 @@ keybinds clear-defaults=true {
 		bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
 		bind "Enter" { SwitchToMode "Normal"; }
 	}
-  session {
-  }
+	session {
+	}
 }
