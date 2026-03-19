@@ -14,13 +14,13 @@ layout {
                 mode_normal       "#[bg=#a6da95,fg=#24273a,bold] N "
                 mode_locked       "#[bg=#ed8796,fg=#24273a,bold] L "
                 mode_pane         "#[bg=#8aadf4,fg=#24273a,bold] P "
+								mode_resize				"#[bg=#f9e2af,fg=#24273a,bold] R "
                 mode_tab          "#[bg=#eed49f,fg=#24273a,bold] T "
                 mode_scroll       "#[bg=#91d7e3,fg=#24273a,bold] S "
                 mode_enter_search "#[bg=#f5bde6,fg=#24273a,bold] / "
                 mode_search       "#[bg=#f5a97f,fg=#24273a,bold] ? "
                 mode_rename_pane  "#[bg=#b7bdf8,fg=#24273a,bold] RP "
                 mode_rename_tab   "#[bg=#c6a0f6,fg=#24273a,bold] RT "
-                mode_default_to_mode "normal"
 
                 // 延续 Q20.1：标签不使用下方色块
                 tab_normal "#[fg=#8087a2] {index}:{name} "

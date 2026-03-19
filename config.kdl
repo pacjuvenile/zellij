@@ -99,16 +99,20 @@ keybinds clear-defaults=true {
         bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
         bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
         bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "H" { Resize "Decrease Right"; SwitchToMode "Normal"; }
-        bind "J" { Resize "Increase Down"; SwitchToMode "Normal"; }
-        bind "K" { Resize "Decrease Down"; SwitchToMode "Normal"; }
-        bind "L" { Resize "Increase Right"; SwitchToMode "Normal"; }
+        bind "H" { MovePane "Left"; SwitchToMode "Normal"; }
+        bind "J" { MovePane "Down"; SwitchToMode "Normal"; }
+        bind "K" { MovePane "Up"; SwitchToMode "Normal"; }
+        bind "L" { MovePane "Right"; SwitchToMode "Normal"; }
         bind "F" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
-        bind "Left" { MovePane "Left"; SwitchToMode "Normal"; }
-        bind "Down" { MovePane "Down"; SwitchToMode "Normal"; }
-        bind "Up" { MovePane "Up"; SwitchToMode "Normal"; }
-        bind "Right" { MovePane "Right"; SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+				bind "`" { SwitchToMode "Resize"; }
+		}
+		resize {
+				bind "Esc" { SwitchToMode "Normal"; }
+				bind "h" { Resize "Decrease Right"; }
+				bind "j" { Resize "Increase Down"; }
+				bind "k" { Resize "Decrease Down"; }
+				bind "l" { Resize "Increase Right"; }
 		}
 		tab {
 				bind "Esc" { SwitchToMode "Normal"; }
