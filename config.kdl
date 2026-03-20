@@ -73,6 +73,8 @@ keybinds clear-defaults=true {
 	locked {
 		// normal mode
 		bind "Ctrl n" { SwitchToMode "Normal"; }
+		// scroll
+		bind "Ctrl s" { SwitchToMode "scroll"; }
 	}
 	normal {
 		// quit
@@ -83,10 +85,6 @@ keybinds clear-defaults=true {
 		bind "p" { SwitchToMode "Pane"; }
 		// tab
 		bind "t" { SwitchToMode "Tab"; }
-		// scroll
-		bind "s" { SwitchToMode "scroll"; }
-		// search
-		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
 	}
 	pane {
 		bind "Esc" { SwitchToMode "Normal"; }
@@ -134,23 +132,23 @@ keybinds clear-defaults=true {
 		bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 	}
 	scroll {
-		bind "Esc" { SwitchToMode "Normal"; }
+		bind "Esc" { SwitchToMode "Locked"; }
 		bind "j" { ScrollDown; }
 		bind "k" { ScrollUp; }
 		bind "d" { HalfPageScrollDown; }
 		bind "u" { HalfPageScrollUp; }
 		bind "e" { EditScrollback; SwitchToMode "Locked"; }
+		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
 	}
 	entersearch {
-		bind "Esc" { SearchInput 0; SwitchToMode "Normal"; }
-		bind "Enter" { SwitchToMode "Search"; }
+		bind "Esc" { SearchInput 0; SwitchToMode "Locked"; }
+		bind "Enter" { SwitchToMode "Search"; SearchToggleOption "Wrap"; }
 	}
 	search {
-		bind "Esc" { SwitchToMode "Normal"; }
+		bind "Esc" { SwitchToMode "Locked"; }
 		bind "p" { Search "up"; }
 		bind "n" { Search "down"; }
 		bind "c" { SearchToggleOption "CaseSensitivity"; }
-		bind "w" { SearchToggleOption "Wrap"; }
 		bind "o" { SearchToggleOption "WholeWord"; }
 	}
 	renamepane {
