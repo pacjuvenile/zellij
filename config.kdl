@@ -145,7 +145,7 @@ keybinds clear-defaults=true {
 		bind "Enter" { SwitchToMode "Search"; SearchToggleOption "Wrap"; }
 	}
 	search {
-		bind "Esc" { SwitchToMode "Locked"; }
+		bind "Esc" { SwitchToMode "scroll"; }
 		bind "p" { Search "up"; }
 		bind "n" { Search "down"; }
 		bind "c" { SearchToggleOption "CaseSensitivity"; }
