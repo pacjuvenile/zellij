@@ -73,14 +73,19 @@ keybinds clear-defaults=true {
 	locked {
 		// normal mode
 		bind "Ctrl n" { SwitchToMode "Normal"; }
-		// scroll
-		bind "Ctrl s" { SwitchToMode "scroll"; }
 	}
 	normal {
 		// quit
 		bind "Ctrl q" { Quit; }
 		// locked
 		bind "Esc" { SwitchToMode "Locked"; }
+		// navigation
+		bind "j" { ScrollDown; }
+		bind "k" { ScrollUp; }
+		bind "d" { HalfPageScrollDown; }
+		bind "u" { HalfPageScrollUp; }
+		bind "e" { EditScrollback; SwitchToMode "Locked"; }
+		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
 		// pane
 		bind "p" { SwitchToMode "Pane"; }
 		// tab
@@ -131,21 +136,12 @@ keybinds clear-defaults=true {
 		bind "9" { GoToTab 9; SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 	}
-	scroll {
-		bind "Esc" { SwitchToMode "Locked"; }
-		bind "j" { ScrollDown; }
-		bind "k" { ScrollUp; }
-		bind "d" { HalfPageScrollDown; }
-		bind "u" { HalfPageScrollUp; }
-		bind "e" { EditScrollback; SwitchToMode "Locked"; }
-		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
-	}
 	entersearch {
 		bind "Esc" { SearchInput 0; SwitchToMode "Locked"; }
 		bind "Enter" { SwitchToMode "Search"; SearchToggleOption "Wrap"; }
 	}
 	search {
-		bind "Esc" { SwitchToMode "scroll"; }
+		bind "Esc" { SwitchToMode "Normal"; }
 		bind "p" { Search "up"; }
 		bind "n" { Search "down"; }
 		bind "c" { SearchToggleOption "CaseSensitivity"; }
