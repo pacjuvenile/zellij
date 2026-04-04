@@ -137,7 +137,7 @@ keybinds clear-defaults=true {
 		bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 	}
 	entersearch {
-		bind "Esc" { SearchInput 0; SwitchToMode "Locked"; }
+		bind "Esc" { SearchInput 0; SwitchToMode "Normal"; }
 		bind "Enter" { SwitchToMode "Search"; SearchToggleOption "Wrap"; }
 	}
 	search {
