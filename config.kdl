@@ -142,8 +142,8 @@ keybinds clear-defaults=true {
 	}
 	search {
 		bind "Esc" { SwitchToMode "Normal"; }
-		bind "p" { Search "up"; }
 		bind "n" { Search "down"; }
+		bind "N" { Search "up"; }
 		bind "c" { SearchToggleOption "CaseSensitivity"; }
 		bind "o" { SearchToggleOption "WholeWord"; }
 	}
