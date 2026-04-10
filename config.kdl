@@ -139,6 +139,10 @@ keybinds clear-defaults=true {
 		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
 		bind "R" { SwitchToMode "Resize"; }
 	}
+	renamepane {
+		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
+		bind "Enter" { SwitchToMode "Normal"; }
+	}
 	resize {
 		bind "Esc" { SwitchToMode "Normal"; }
 		bind "h" { Resize "Increase Left"; }
@@ -149,10 +153,6 @@ keybinds clear-defaults=true {
 		bind "J" { Resize "Decrease Down"; }
 		bind "K" { Resize "Decrease Up"; }
 		bind "L" { Resize "Decrease Right"; }
-	}
-	renamepane {
-		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
-		bind "Enter" { SwitchToMode "Normal"; }
 	}
 	entersearch {
 		bind "Esc" { SearchInput 0; SwitchToMode "Normal"; }

@@ -13,8 +13,8 @@ layout {
 				mode_tab	"#[bg=#eed49f,fg=#24273a,bold] T "
 				mode_rename_tab	"#[bg=#eed49f,fg=#24273a,bold] RT "
 				mode_pane	"#[bg=#8aadf4,fg=#24273a,bold] P "
-				mode_resize	"#[bg=#8aadf4,fg=#24273a,bold] R "
 				mode_rename_pane	"#[bg=#8aadf4,fg=#24273a,bold] RP "
+				mode_resize	"#[bg=#8aadf4,fg=#24273a,bold] R "
 				mode_enter_search	"#[bg=#91d7e3,fg=#24273a,bold] / "
 				mode_search	"#[bg=#91d7e3,fg=#24273a,bold] ? "
 				
