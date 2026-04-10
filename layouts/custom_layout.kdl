@@ -1,32 +1,27 @@
 layout {
-    default_tab_template {
-        pane size=1 borderless=true {
-            plugin location="zjstatus" {
-                // 左侧: 模式 + 被色块包裹的会话名
-                // 中间: tabs
-                // 右侧: 留空（移除时间）
-                format_left   "{mode}#[bg=#8aadf4,fg=#24273a,bold] {session} "
-                format_center "{tabs}"
-                format_right  ""
-                format_space  " "
-
-                // mode 色块（按你当前 keymaps）
-                mode_normal       "#[bg=#a6da95,fg=#24273a,bold] N "
-                mode_locked       "#[bg=#ed8796,fg=#24273a,bold] L "
-                mode_pane         "#[bg=#8aadf4,fg=#24273a,bold] P "
-								mode_resize				"#[bg=#f9e2af,fg=#24273a,bold] R "
-                mode_tab          "#[bg=#eed49f,fg=#24273a,bold] T "
-                mode_scroll       "#[bg=#91d7e3,fg=#24273a,bold] S "
-                mode_enter_search "#[bg=#f5bde6,fg=#24273a,bold] / "
-                mode_search       "#[bg=#f5a97f,fg=#24273a,bold] ? "
-                mode_rename_pane  "#[bg=#b7bdf8,fg=#24273a,bold] RP "
-                mode_rename_tab   "#[bg=#c6a0f6,fg=#24273a,bold] RT "
-
-                // 延续 Q20.1：标签不使用下方色块
-                tab_normal "#[fg=#8087a2] {index}:{name} "
-                tab_active "#[fg=#8aadf4,bold] {index}:{name} "
-            }
-        }
-        children
-    }
+	default_tab_template {
+		pane size=1 borderless=true {
+			plugin location="zjstatus" {
+				format_left	"{mode}#[bg=#8aadf4,fg=#24273a,bold] {session} "
+				format_center	"{tabs}"
+				format_right	""
+				format_space	" "
+				
+				mode_locked	"#[bg=#ed8796,fg=#24273a,bold] L "
+				mode_normal	"#[bg=#a6da95,fg=#24273a,bold] N "
+				mode_session	"#[bg=#c6a0f6,fg=#24273a,bold] S "
+				mode_tab	"#[bg=#eed49f,fg=#24273a,bold] T "
+				mode_rename_tab	"#[bg=#eed49f,fg=#24273a,bold] RT "
+				mode_pane	"#[bg=#8aadf4,fg=#24273a,bold] P "
+				mode_resize	"#[bg=#8aadf4,fg=#24273a,bold] R "
+				mode_rename_pane	"#[bg=#8aadf4,fg=#24273a,bold] RP "
+				mode_enter_search	"#[bg=#91d7e3,fg=#24273a,bold] / "
+				mode_search	"#[bg=#91d7e3,fg=#24273a,bold] ? "
+				
+				tab_normal	"#[fg=#8087a2] {index}:{name} "
+				tab_active	"#[fg=#8aadf4,bold] {index}:{name} "
+			}
+		}
+		children
+	}
 }

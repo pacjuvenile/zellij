@@ -47,7 +47,7 @@ copy_on_select false
 mirror_session	false
 support_kitty_keyboard_protocol false
 session_serialization	true
-pane_viewport_serialization	true
+serialize_pane_viewport	true
 scrollback_lines_to_serialize	10000
 disable_session_metadata	false
 
@@ -79,6 +79,12 @@ keybinds clear-defaults=true {
 		bind "Ctrl q" { Quit; }
 		// locked
 		bind "Esc" { SwitchToMode "Locked"; }
+		// session
+		bind "s" { SwitchToMode "Session"; }
+		// tab
+		bind "t" { SwitchToMode "Tab"; }
+		// pane
+		bind "p" { SwitchToMode "Pane"; }
 		// navigation
 		bind "j" { ScrollDown; }
 		bind "k" { ScrollUp; }
@@ -86,36 +92,10 @@ keybinds clear-defaults=true {
 		bind "u" { HalfPageScrollUp; }
 		bind "e" { EditScrollback; SwitchToMode "Locked"; }
 		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
-		// pane
-		bind "p" { SwitchToMode "Pane"; }
-		// tab
-		bind "t" { SwitchToMode "Tab"; }
 	}
-	pane {
-		bind "Esc" { SwitchToMode "Normal"; }
-		bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
-		bind "_" { NewPane "Down"; SwitchToMode "Normal"; }
-		bind "s" { NewPane "stacked"; SwitchToMode "Normal"; }
-		bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
-		bind "x" { CloseFocus; SwitchToMode "Normal"; }
-		bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
-		bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
-		bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
-		bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
-		bind "H" { MovePane "Left"; SwitchToMode "Normal"; }
-		bind "J" { MovePane "Down"; SwitchToMode "Normal"; }
-		bind "K" { MovePane "Up"; SwitchToMode "Normal"; }
-		bind "L" { MovePane "Right"; SwitchToMode "Normal"; }
-		bind "F" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
-		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-		bind "`" { SwitchToMode "Resize"; }
-	}
-	resize {
-		bind "Esc" { SwitchToMode "Normal"; }
-		bind "h" { Resize "Decrease Right"; }
-		bind "j" { Resize "Increase Down"; }
-		bind "k" { Resize "Decrease Down"; }
-		bind "l" { Resize "Increase Right"; }
+	session {
+		bind "Esc" { SwitchToMode "Normal"; }	
+		bind "d" { Detach; }
 	}
 	tab {
 		bind "Esc" { SwitchToMode "Normal"; }
@@ -136,6 +116,44 @@ keybinds clear-defaults=true {
 		bind "9" { GoToTab 9; SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
 	}
+	renametab {
+		bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
+		bind "Enter" { SwitchToMode "Normal"; }
+	}
+	pane {
+		bind "Esc" { SwitchToMode "Normal"; }
+		bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
+		bind "_" { NewPane "Down"; SwitchToMode "Normal"; }
+		bind "s" { NewPane "stacked"; SwitchToMode "Normal"; }
+		bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+		bind "x" { CloseFocus; SwitchToMode "Normal"; }
+		bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
+		bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
+		bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+		bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
+		bind "H" { MovePane "Left"; SwitchToMode "Normal"; }
+		bind "J" { MovePane "Down"; SwitchToMode "Normal"; }
+		bind "K" { MovePane "Up"; SwitchToMode "Normal"; }
+		bind "L" { MovePane "Right"; SwitchToMode "Normal"; }
+		bind "F" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+		bind "R" { SwitchToMode "Resize"; }
+	}
+	resize {
+		bind "Esc" { SwitchToMode "Normal"; }
+		bind "h" { Resize "Increase Left"; }
+		bind "j" { Resize "Increase Down"; }
+		bind "k" { Resize "Increase Up"; }
+		bind "l" { Resize "Increase Right"; }
+		bind "H" { Resize "Decrease Left"; }
+		bind "J" { Resize "Decrease Down"; }
+		bind "K" { Resize "Decrease Up"; }
+		bind "L" { Resize "Decrease Right"; }
+	}
+	renamepane {
+		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
+		bind "Enter" { SwitchToMode "Normal"; }
+	}
 	entersearch {
 		bind "Esc" { SearchInput 0; SwitchToMode "Normal"; }
 		bind "Enter" { SwitchToMode "Search"; SearchToggleOption "Wrap"; }
@@ -146,15 +164,5 @@ keybinds clear-defaults=true {
 		bind "N" { Search "up"; }
 		bind "c" { SearchToggleOption "CaseSensitivity"; }
 		bind "o" { SearchToggleOption "WholeWord"; }
-	}
-	renamepane {
-		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
-		bind "Enter" { SwitchToMode "Normal"; }
-	}
-	renametab {
-		bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
-		bind "Enter" { SwitchToMode "Normal"; }
-	}
-	session {
 	}
 }
