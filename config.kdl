@@ -85,6 +85,8 @@ keybinds clear-defaults=true {
 		bind "t" { SwitchToMode "Tab"; }
 		// pane
 		bind "p" { SwitchToMode "Pane"; }
+		// resize
+		bind "r" { SwitchToMode "Resize"; }
 		// navigation
 		bind "j" { ScrollDown; }
 		bind "k" { ScrollUp; }
@@ -96,6 +98,7 @@ keybinds clear-defaults=true {
 	session {
 		bind "Esc" { SwitchToMode "Normal"; }	
 		bind "d" { Detach; }
+		// bind "r" { SwitchToMode "RenameSession"; SessionNameInput 0; }
 	}
 	tab {
 		bind "Esc" { SwitchToMode "Normal"; }
@@ -137,7 +140,6 @@ keybinds clear-defaults=true {
 		bind "L" { MovePane "Right"; SwitchToMode "Normal"; }
 		bind "F" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-		bind "R" { SwitchToMode "Resize"; }
 	}
 	renamepane {
 		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
