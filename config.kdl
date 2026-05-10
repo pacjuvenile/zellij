@@ -9,7 +9,7 @@
 // 基础选项
 theme	"dracula"
 default_layout	"custom_layout"
-default_mode	"locked"	// 默认启动模式会透传未绑定按键
+default_mode	"normal"	// 默认启动模式会透传未绑定按键
 
 // 启动选项
 show_startup_tips	false
@@ -70,35 +70,27 @@ load_plugins {
 // keymaps
 ////////////////////
 keybinds clear-defaults=true {
-	locked {
-		// normal mode
-		bind "Ctrl n" { SwitchToMode "Normal"; }
-	}
 	normal {
 		// quit
-		bind "Ctrl q" { Quit; }
-		// locked
-		bind "Esc" { SwitchToMode "Locked"; }
-		// session
-		bind "s" { SwitchToMode "Session"; }
-		// tab
-		bind "t" { SwitchToMode "Tab"; }
-		// pane
-		bind "p" { SwitchToMode "Pane"; }
-		// resize
-		bind "r" { SwitchToMode "Resize"; }
-		// navigation
-		bind "j" { ScrollDown; }
-		bind "k" { ScrollUp; }
-		bind "d" { HalfPageScrollDown; }
-		bind "u" { HalfPageScrollUp; }
-		bind "e" { EditScrollback; SwitchToMode "Locked"; }
-		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+		bind "Alt q" { Quit; }
+		// session mode
+		bind "Alt s" { SwitchToMode "Session"; }
+		// tab mode
+		bind "Alt t" { SwitchToMode "Tab"; }
+		// pane mode
+		bind "Alt p" { SwitchToMode "Pane"; }
 	}
 	session {
 		bind "Esc" { SwitchToMode "Normal"; }	
 		bind "d" { Detach; }
-		// bind "r" { SwitchToMode "RenameSession"; SessionNameInput 0; }
+		// vim-like navigation
+		bind "j" { ScrollDown; }
+		bind "k" { ScrollUp; }
+		bind "Ctrl d" { HalfPageScrollDown; }
+		bind "Ctrl u" { HalfPageScrollUp; }
+		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+		// open in default editor
+		bind "e" { EditScrollback; SwitchToMode "Normal"; }
 	}
 	tab {
 		bind "Esc" { SwitchToMode "Normal"; }
@@ -130,23 +122,16 @@ keybinds clear-defaults=true {
 		bind "s" { NewPane "stacked"; SwitchToMode "Normal"; }
 		bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 		bind "x" { CloseFocus; SwitchToMode "Normal"; }
-		bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
-		bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
-		bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
-		bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
+		bind "left" { MoveFocus "Left"; SwitchToMode "Normal"; }
+		bind "down" { MoveFocus "Down"; SwitchToMode "Normal"; }
+		bind "up" { MoveFocus "Up"; SwitchToMode "Normal"; }
+		bind "right" { MoveFocus "Right"; SwitchToMode "Normal"; }
 		bind "H" { MovePane "Left"; SwitchToMode "Normal"; }
 		bind "J" { MovePane "Down"; SwitchToMode "Normal"; }
 		bind "K" { MovePane "Up"; SwitchToMode "Normal"; }
 		bind "L" { MovePane "Right"; SwitchToMode "Normal"; }
 		bind "F" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-	}
-	renamepane {
-		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
-		bind "Enter" { SwitchToMode "Normal"; }
-	}
-	resize {
-		bind "Esc" { SwitchToMode "Normal"; }
 		bind "h" { Resize "Increase Left"; }
 		bind "j" { Resize "Increase Down"; }
 		bind "k" { Resize "Increase Up"; }
@@ -155,6 +140,10 @@ keybinds clear-defaults=true {
 		bind "J" { Resize "Decrease Down"; }
 		bind "K" { Resize "Decrease Up"; }
 		bind "L" { Resize "Decrease Right"; }
+	}
+	renamepane {
+		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
+		bind "Enter" { SwitchToMode "Normal"; }
 	}
 	entersearch {
 		bind "Esc" { SearchInput 0; SwitchToMode "Normal"; }
