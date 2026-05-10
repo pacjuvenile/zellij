@@ -6,14 +6,10 @@
 // layout_dir	"/home/pacjuvenile/.config/zellij/layouts"
 // theme_dir	"/home/pacjuvenile/.config//zellij/themes"
 
-// 基础选项
-theme	"dracula"
-default_layout	"custom_layout"
-default_mode	"normal"	// 默认启动模式会透传未绑定按键
-
 // 启动选项
 show_startup_tips	false
 show_release_notes	false
+default_mode	"normal"	// 默认启动模式会透传未绑定按键
 
 // shell选项
 on_force_close	"detach"
@@ -22,19 +18,12 @@ default_shell	"zsh"
 // session_name	"work"	// 默认使用随机会话名	
 attach_to_session	false
 
-// 面板选项
-pane_frames	true
-auto_layout	true
-stacked_resize	true
-scroll_buffer_size 10000
-osc8_hyperlinks	true
-// copy_command "xclip -selection clipboard"	// 默认走OSC 52路线
-copy_clipboard	"system"	// 仅OSC 52时生效
-scrollback_editor	"nvim"
-
 // UI选项
-visual_bell	true
+theme	"dracula"
+default_layout	"custom_layout"
+pane_frames	true
 simplified_ui	false
+visual_bell	true
 styled_underlines	true
 
 // 鼠标选项
@@ -44,6 +33,13 @@ mouse_hover_effects	false
 copy_on_select false
 
 // 会话选项
+auto_layout	true
+stacked_resize	true
+scroll_buffer_size 10000
+osc8_hyperlinks	true
+// copy_command "xclip -selection clipboard"	// 默认走OSC 52路线
+copy_clipboard	"system"	// 仅OSC 52时生效
+scrollback_editor	"nvim"
 mirror_session	false
 support_kitty_keyboard_protocol false
 session_serialization	true
@@ -67,12 +63,12 @@ load_plugins {
 }
 
 ////////////////////
-// keymaps
+// keybinds
 ////////////////////
 keybinds clear-defaults=true {
 	normal {
 		// quit
-		bind "Alt q" { Quit; }
+		bind "Alt Q" { Quit; }
 		// session mode
 		bind "Alt s" { SwitchToMode "Session"; }
 		// tab mode
