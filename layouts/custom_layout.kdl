@@ -1,27 +1,12 @@
 layout {
 	default_tab_template {
-		pane size=1 borderless=true {
-			plugin location="zjstatus" {
-				format_left	"{mode}#[bg=#8aadf4,fg=#24273a,bold] {session} "
-				format_center	"{tabs}"
-				format_right	""
-				format_space	" "
-				
-				mode_locked	"#[bg=#ed8796,fg=#24273a,bold] L "
-				mode_normal	"#[bg=#a6da95,fg=#24273a,bold] N "
-				mode_session	"#[bg=#c6a0f6,fg=#24273a,bold] S "
-				mode_tab	"#[bg=#eed49f,fg=#24273a,bold] T "
-				mode_rename_tab	"#[bg=#eed49f,fg=#24273a,bold] RT "
-				mode_pane	"#[bg=#8aadf4,fg=#24273a,bold] P "
-				mode_rename_pane	"#[bg=#8aadf4,fg=#24273a,bold] RP "
-				mode_resize	"#[bg=#8aadf4,fg=#24273a,bold] R "
-				mode_enter_search	"#[bg=#91d7e3,fg=#24273a,bold] / "
-				mode_search	"#[bg=#91d7e3,fg=#24273a,bold] ? "
-				
-				tab_normal	"#[fg=#8087a2] {index}:{name} "
-				tab_active	"#[fg=#8aadf4,bold] {index}:{name} "
-			}
-		}
 		children
+		pane size=1 borderless=true {
+			plugin location="zellij:compact-bar"
+		}
+	}
+
+	tab { 
+		pane
 	}
 }

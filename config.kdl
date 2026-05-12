@@ -67,35 +67,21 @@ load_plugins {
 ////////////////////
 keybinds clear-defaults=true {
 	normal {
-		// session mode
-		bind "Alt s" { SwitchToMode "Session"; }
-		// tab mode
-		bind "Alt t" { SwitchToMode "Tab"; }
-		// pane mode
-		bind "Alt p" { SwitchToMode "Pane"; }
+		// tmux mode
+		bind "Ctrl s" { SwitchToMode "tmux"; }
 	}
-	session {
+	tmux {
 		bind "Esc" { SwitchToMode "Normal"; }	
+
+		// session
 		bind "d" { Detach; }
-		// vim-like navigation
-		bind "j" { ScrollDown; }
-		bind "k" { ScrollUp; }
-		bind "Ctrl d" { HalfPageScrollDown; }
-		bind "Ctrl u" { HalfPageScrollUp; }
-		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
-		// open in default editor
-		bind "e" { EditScrollback; SwitchToMode "Normal"; }
-	}
-	tab {
-		bind "Esc" { SwitchToMode "Normal"; }
+
+		// tab
 		bind "t" { NewTab; SwitchToMode "Normal"; }
-		bind "x" { CloseTab; SwitchToMode "Normal"; }
-		bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
+		bind "c" { CloseTab; SwitchToMode "Normal"; }
 		bind "n" { GoToNextTab; SwitchToMode "Normal"; }
-		bind "P" { MoveTab "Left"; SwitchToMode "Normal"; }
-		bind "N" { MoveTab "Right"; SwitchToMode "Normal"; }
-  	bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
-  	bind "b" { BreakPane; SwitchToMode "Normal"; }
+		bind "N" { GoToPreviousTab; SwitchToMode "Normal"; }
+		bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
 		bind "1" { GoToTab 1; SwitchToMode "Normal"; }
 		bind "2" { GoToTab 2; SwitchToMode "Normal"; }
 		bind "3" { GoToTab 3; SwitchToMode "Normal"; }
@@ -105,20 +91,17 @@ keybinds clear-defaults=true {
 		bind "7" { GoToTab 7; SwitchToMode "Normal"; }
 		bind "8" { GoToTab 8; SwitchToMode "Normal"; }
 		bind "9" { GoToTab 9; SwitchToMode "Normal"; }
-		bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-	}
-	renametab {
-		bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
-		bind "Enter" { SwitchToMode "Normal"; }
-	}
-	pane {
-		bind "Esc" { SwitchToMode "Normal"; }
+  	// bind "a" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
+  	// bind "b" { BreakPane; SwitchToMode "Normal"; }
+		
+		// pane
 		bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
 		bind "_" { NewPane "Down"; SwitchToMode "Normal"; }
-		bind "s" { NewPane "stacked"; SwitchToMode "Normal"; }
-		bind "x" { CloseFocus; SwitchToMode "Normal"; }
+		bind "S" { NewPane "stacked"; SwitchToMode "Normal"; }
 		bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 		bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+		bind "x" { CloseFocus; SwitchToMode "Normal"; }
+		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
 		bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
 		bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
 		bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
@@ -131,14 +114,33 @@ keybinds clear-defaults=true {
 		bind "down" { MovePane "Down"; SwitchToMode "Normal"; }
 		bind "up" { MovePane "Up"; SwitchToMode "Normal"; }
 		bind "right" { MovePane "Right"; SwitchToMode "Normal"; }
-		bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+
+		// scroll mode
+		bind "s" { SwitchToMode "Scroll"; }
+	}
+	scroll {
+		bind "Esc" { SwitchToMode "Normal"; }	
+		// tmux mode
+		bind "Ctrl s" { SwitchToMode "tmux"; }
+		// vim-like navigation
+		bind "j" { ScrollDown; }
+		bind "k" { ScrollUp; }
+		bind "Ctrl d" { HalfPageScrollDown; }
+		bind "Ctrl u" { HalfPageScrollUp; }
+		bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+		// open in default editor
+		bind "e" { EditScrollback; SwitchToMode "Normal"; }
+	}
+	renametab {
+		bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
+		bind "Enter" { SwitchToMode "Normal"; }
 	}
 	renamepane {
 		bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
 		bind "Enter" { SwitchToMode "Normal"; }
 	}
 	entersearch {
-		bind "Esc" { SearchInput 0; SwitchToMode "Normal"; }
+		bind "Esc" { SwitchToMode "Normal"; }
 		bind "Enter" { SwitchToMode "Search"; SearchToggleOption "Wrap"; }
 	}
 	search {
