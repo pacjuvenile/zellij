@@ -77,7 +77,6 @@ keybinds clear-defaults=true {
 		// session:lifecycle
 		bind "d" { Detach; }
 		// session: state
-		// bind "w" { SaveSession; SwitchToMode "Normal"; }
 		bind "m" {
 			LaunchOrFocusPlugin "zellij:session-manager" {
 				floating true
