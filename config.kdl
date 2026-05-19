@@ -55,7 +55,7 @@ web_server	false
 // plugins
 ////////////////////
 plugins {
-	zjstatus location="file:zjstatus.wasm"
+	zellij-wayfinder location="file:zellij-wayfinder.wasm"
 }
 
 load_plugins {
@@ -76,15 +76,16 @@ keybinds clear-defaults=true {
 
 		// session:lifecycle
 		bind "d" { Detach; }
+		bind "D" { Quit; }
 		// session: state
-		bind "m" {
-			LaunchOrFocusPlugin "zellij:session-manager" {
+		// session: navigation
+		bind "l" { 
+			LaunchOrFocusPlugin "zellij-wayfinder" {
 				floating true
 				move_to_focused_tab true
-			};
-			SwitchToMode "Normal"
+			}
+			SwitchToMode "normal"
 		}
-		// session: navigation
 		// session: move
 
 		// tab: lifecycle
@@ -131,10 +132,10 @@ keybinds clear-defaults=true {
 		bind "Ctrl k" { MoveFocus "Up"; SwitchToMode "Normal"; }
 		bind "Ctrl l" { MoveFocus "Right"; SwitchToMode "Normal"; }
 		// pane: move
-		bind "left" { MovePane "Left"; SwitchToMode "Normal"; }
-		bind "down" { MovePane "Down"; SwitchToMode "Normal"; }
-		bind "up" { MovePane "Up"; SwitchToMode "Normal"; }
-		bind "right" { MovePane "Right"; SwitchToMode "Normal"; }
+		bind "left" { MovePane "Left"; }
+		bind "down" { MovePane "Down"; }
+		bind "up" { MovePane "Up"; }
+		bind "right" { MovePane "Right"; }
 		// pane: resize
 		bind "<" { Resize "Increase Left"; }
 		bind ">" { Resize "Increase Right"; }
