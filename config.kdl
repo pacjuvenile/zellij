@@ -151,7 +151,7 @@ keybinds clear-defaults=true {
 		bind "n" { Search "down"; }
 		bind "N" { Search "up"; }
 		bind "c" { SearchToggleOption "CaseSensitivity"; }
-		bind "o" { SearchToggleOption "WholeWord"; }
+		bind "w" { SearchToggleOption "WholeWord"; }
 	}
 	renametab {
 		bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
