@@ -61,6 +61,19 @@ plugins {
 load_plugins {
 	// "file:/path/to/my-plugin.wasm"
 	// "https://example.com/my-plugin.wasm"
+	zellij-wayfinder {
+		router "true"
+		ui_location "zellij-wayfinder"
+
+		window_x_percent "5"
+		window_y_percent "18"
+		window_width_percent "88"
+		window_width_percent "72"
+		window_borderless "false"
+
+		column_ratio "20,35,45"
+		theme "catppuccin-macchiato"
+	}
 }
 
 ////////////////////
@@ -80,11 +93,10 @@ keybinds clear-defaults=true {
 		// session: state
 		// session: navigation
 		bind "l" { 
-			LaunchOrFocusPlugin "zellij-wayfinder" {
-				floating true
-				move_to_focused_tab true
+			MessagePlugin {
+				name "wayfinder-open"	
 			}
-			SwitchToMode "normal"
+			SwitchToMode "Normal"
 		}
 		// session: move
 
