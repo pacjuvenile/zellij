@@ -21,7 +21,7 @@ attach_to_session	false
 // UI选项
 theme	"dracula"
 default_layout	"custom_layout"
-pane_frames	true
+pane_frames	false
 simplified_ui	false
 visual_bell	true
 styled_underlines	true
