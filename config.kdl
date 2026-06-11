@@ -151,8 +151,12 @@ keybinds clear-defaults=true {
 		// pane: resize
 		bind "<" { Resize "Increase Left"; }
 		bind ">" { Resize "Increase Right"; }
+		bind "," { Resize "Decrease Left"; }
+		bind "." { Resize "Decrease Right"; }
 		bind "+" { Resize "Increase Down"; }
-		bind "-" { Resize "Increase Up"; }
+		bind "_" { Resize "Increase Up"; }
+		bind "=" { Resize "Decrease Down"; }
+		bind "-" { Resize "Decrease Up"; }
 	}
 	entersearch {
 		bind "Esc" { SwitchToMode "tmux"; }
